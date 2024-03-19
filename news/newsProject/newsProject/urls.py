@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from  newsApp.views import index
+from  newsApp.views import index, get_category
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
@@ -23,7 +23,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('', index, name="Home"),
+    path("category/<int:category_id>", get_category, name="Category")
 ]
 
 if settings.DEBUG:
