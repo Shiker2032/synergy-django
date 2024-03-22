@@ -10,7 +10,7 @@ def index(request):
         'news': news,
         "categories": Category.objects.all()
     }
-    return render(request, 'News/index.html', context=_context)
+    return render(request, 'index.html', context=_context)
 
 def get_category(request, category_id):
     news = News.objects.filter(category_id=category_id)
@@ -21,4 +21,4 @@ def get_category(request, category_id):
         'categories': categories,
         'category': category
     }
-    return render(request,'News/category.html', context=context)
+    return render(request,'category.html', context=context)

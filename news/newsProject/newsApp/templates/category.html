@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+<section>
+  {% block sidebar %}
+  <div class="news__sidebar col-3">
+    <div class="list-group">
+      {% for cat in categories %}
+      <a
+        class="list-group-item list-group-item-action"
+        href="{% url 'Category' cat.id %}"
+        >{{cat.title}}
+      </a>
+      {% endfor %}
+    </div>
+  </div>  
+  {% endblock sidebar %}
+  {% block content %}
+  <div class="news__content col-9">
+    {% for item in news %}
+    <div class="card p-4">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <img src="{{item.photo.url}}" class="img-fluid" alt="" />
+        </div>
+        <div class="col-6">
+          <h4>{{item.title}}</h4>
+          <h5>Категория: {{item.category.title}}</h5>
+
+          <p>{{item.content|truncatewords:60}}</p>
+
+          <button class="btn btn-primary me-auto">Go somewhere</button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>  
+  {% endblock content %}
+  </section>
