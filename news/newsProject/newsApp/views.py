@@ -8,7 +8,7 @@ def index(request):
     _context = {
         'title': 'Список новостей',
         'news': news,
-        "categories": Category.objects.all()
+       
     }
     return render(request, 'index.html', context=_context)
 
@@ -18,7 +18,6 @@ def get_category(request, category_id):
     category = Category.objects.filter(pk=category_id)
     context = {
         'news': news,
-        'categories': categories,
         'category': category
     }
     return render(request,'category.html', context=context)

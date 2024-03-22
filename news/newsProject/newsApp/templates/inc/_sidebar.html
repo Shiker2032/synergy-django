@@ -1,11 +1,3 @@
-<div class="news__sidebar col-3">
-    <div class="list-group">
-      {% for cat in categories %}
-      <a
-        class="list-group-item list-group-item-action"
-        href="{% url 'Category' cat.id %}"
-        >{{cat.title}}
-      </a>
-      {% endfor %}
-    </div>
-  </div>  
+{%load news_extras%}
+
+{%show_categores%}
